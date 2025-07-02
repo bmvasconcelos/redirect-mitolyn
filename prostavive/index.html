@@ -4,43 +4,56 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <meta name="robots" content="noindex,nofollow">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16875342391"></script>
   <script>
-    (function () {
-      // Função para gerar um extclid único
-      function gerarExtId() {
-        return btoa(Date.now() + "_" + Math.random()).substring(0, 12);
-      }
-
-      const params = new URLSearchParams(window.location.search);
-      const gclid = params.get("gclid") || "";
-      const extclid = gerarExtId();
-
-      // Envia para seu webhook do Make.com
-      fetch("https://hook.us1.make.com/mvb67755tdy7lsomr48h6sufyji5dzja", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          extclid: extclid,
-          gclid: gclid,
-          userAgent: navigator.userAgent,
-          timestamp: new Date().toISOString()
-        })
-      });
-
-      // Redireciona via clique oculto para remover o referer
-      setTimeout(() => {
-        const link = document.createElement("a");
-        link.href = "https://hop.clickbank.net/?affiliate=vaxco&vendor=provive&tid=track&extclid=" + extclid;
-        link.rel = "noreferrer noopener";
-        document.body.appendChild(link);
-        link.click();
-      }, 300); // Delay para garantir envio
-    })();
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'AW-16875342391');
   </script>
+  
 </head>
 <body>
   <p style="font-family:sans-serif;text-align:center;margin-top:100px;">
     Redirecting to the secure offer...
   </p>
+
+  <script>
+      (function () {
+        // Função para gerar um extclid único
+        function gerarExtId() {
+          return btoa(Date.now() + "_" + Math.random()).substring(0, 12);
+        }
+  
+        const params = new URLSearchParams(window.location.search);
+        const gclid = params.get("gclid") || "";
+        const extclid = gerarExtId();
+  
+        // Envia para seu webhook do Make.com
+        fetch("https://hook.us1.make.com/mvb67755tdy7lsomr48h6sufyji5dzja", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            extclid: extclid,
+            gclid: gclid,
+            userAgent: navigator.userAgent,
+            timestamp: new Date().toISOString()
+          })
+        });
+  
+        // Redireciona via clique oculto para remover o referer
+        setTimeout(() => {
+          const link = document.createElement("a");
+          link.href = "https://hop.clickbank.net/?affiliate=vaxco&vendor=provive&tid=track&extclid=" + extclid;
+          link.rel = "noreferrer noopener";
+          document.body.appendChild(link);
+          link.click();
+        }, 300); // Delay para garantir envio
+      })();
+    </script>
+  
 </body>
 </html>
