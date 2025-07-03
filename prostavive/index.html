@@ -1,59 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <meta name="robots" content="noarchive, nosnippet">
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16875342391"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  
-    gtag('config', 'AW-16875342391');
-  </script>
-  
+  <meta charset="UTF-8"/>
+  <title>Prostavive – Natural Men’s Wellness</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="noindex,nofollow"/>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f7f8fc; color: #1b1b1b; margin:0; padding:20px; text-align:center; }
+    .container { max-width:600px; margin:auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 0 15px rgba(0,0,0,0.08);}
+    h1 { color:#1d3e81; font-size:24px; }
+    p { font-size:16px; line-height:1.6; }
+    .product-img { max-width:200px; margin:20px auto; display:block; }
+    .cta-btn { background:#0e5b9f; color:white; padding:14px 26px; font-size:16px; border:none; border-radius:8px; cursor:pointer; }
+    .cta-btn:hover { background:#094b86; }
+  </style>
 </head>
 <body>
-  <p style="font-family:sans-serif;text-align:center;margin-top:100px;">
-    Redirecting to the secure offer...
-  </p>
-
+  <div class="container">
+    <img src="ProstaVive.jpg" alt="Prostavive bottle" class="product-img"/>
+    <h1>Prostavive – Natural Men’s Wellness Support</h1>
+    <p>Discover why Prostavive is gaining popularity among adult men in the U.S. Its thoughtfully designed formula is earning attention for supporting overall vitality and well-being.</p>
+    <p>If you're seeking a natural way to feel more energized, balanced, and confident each day, this could be what you've been looking for.</p>
+    <p><strong>Special offer available for a limited time.</strong></p>
+    <button class="cta-btn" onclick="redirecionar()">Yes! Take Me to Prostavive</button>
+  </div>
   <script>
-      (function () {
-        // Função para gerar um extclid único
-        function gerarExtId() {
-          return btoa(Date.now() + "_" + Math.random()).substring(0, 12);
-        }
-  
-        const params = new URLSearchParams(window.location.search);
-        const gclid = params.get("gclid") || "";
-        const extclid = gerarExtId();
-  
-        // Envia para seu webhook do Make.com
-        fetch("https://hook.us1.make.com/mvb67755tdy7lsomr48h6sufyji5dzja", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            extclid: extclid,
-            gclid: gclid,
-            useragent: navigator.userAgent,
-            timestamp: new Date().toISOString()
-          })
-        });
-  
-        // Redireciona via clique oculto para remover o referer
-        setTimeout(() => {
-          const link = document.createElement("a");
-          link.href = "https://hop.clickbank.net/?affiliate=vaxco&vendor=provive&tid=track&extclid=" + extclid;
-          link.rel = "noreferrer noopener";
-          document.body.appendChild(link);
-          link.click();
-        }, 1500); // Delay para garantir envio
-      })();
-    </script>
-  
+    function gerarExtId() {
+      return btoa(Date.now() + '_' + Math.random()).substring(0,12);
+    }
+    function redirecionar(){
+      const extclid = gerarExtId();
+      const params = new URLSearchParams(window.location.search);
+      const gclid = params.get("gclid") || "";
+      
+      fetch("https://hook.us1.make.com/mvb67755tdy7lsomr48h6sufyji5dzja", {
+        method:"POST", headers:{"Content-Type":"application/json"},
+        body: JSON.stringify({extclid,gclid,useragent:navigator.userAgent,timestamp:new Date().toISOString()})
+      });
+      
+      const a = document.createElement("a");
+      a.href = "https://hop.clickbank.net/?affiliate=vaxco&vendor=provive&tid=track&extclid="+extclid;
+      a.rel = "noreferrer noopener";
+      document.body.appendChild(a); a.click();
+    }
+  </script>
 </body>
 </html>
