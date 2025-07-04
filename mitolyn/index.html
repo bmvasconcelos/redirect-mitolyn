@@ -30,7 +30,7 @@
         }
   
         const params = new URLSearchParams(window.location.search);
-        const gclid = params.get("gclid") || "";
+        const gclid = params.get("extclid") || "";
         const extclid = gerarExtId();
   
         // Envia para seu webhook do Make.com
