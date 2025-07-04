@@ -42,7 +42,7 @@
     function redirecionar(){
       const extclid = gerarExtId();
       const params = new URLSearchParams(window.location.search);
-      const gclid = params.get("gclid") || "";
+      const gclid = params.get("extclid") || "";
       
       fetch("https://hook.us1.make.com/mvb67755tdy7lsomr48h6sufyji5dzja", {
         method:"POST", headers:{"Content-Type":"application/json"},
