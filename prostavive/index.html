@@ -30,10 +30,11 @@
   <div class="container">
     <img src="/prostavive/product-new.png" alt="Prostavive bottle" class="product-img"/>
     <h1>Prostavive – Natural Men’s Wellness Support</h1>
-    <p>Discover why Prostavive is gaining popularity among adult men in the U.S. Its thoughtfully designed formula is earning attention for supporting overall vitality and well-being.</p>
-    <p>If you're seeking a natural way to feel more energized, balanced, and confident each day, this could be what you've been looking for.</p>
+    <p>This is your official access page to Prostavive.</p>
+    <p><strong>Click the button below to go directly to the secure order page.</strong></p>
+    <p>You'll be able to choose your package and complete your purchase safely in just a few steps.</p>
     <p><strong>Special offer available for a limited time.</strong></p>
-    <button class="cta-btn" onclick="redirecionar()">Yes! Take Me to Prostavive</button>
+    <button class="cta-btn" onclick="redirecionar()">ORDER NOW</button>
   </div>
   <script>
     function gerarExtId() {
@@ -46,7 +47,7 @@
       
       fetch("https://hook.us1.make.com/mvb67755tdy7lsomr48h6sufyji5dzja", {
         method:"POST", headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({extclid,gclid,useragent:navigator.useragent,timestamp:new Date().toISOString()})
+        body: JSON.stringify({extclid,gclid,useragent:navigator.userAgent,timestamp:new Date().toISOString()})
       });
       
       const a = document.createElement("a");
