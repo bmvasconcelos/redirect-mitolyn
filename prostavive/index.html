@@ -44,10 +44,11 @@
       const extclid = gerarExtId();
       const params = new URLSearchParams(window.location.search);
       const gclid = params.get("extclid") || "";
+      const origem = params.get("aff_sub1") || "";
       
       fetch("https://hook.us1.make.com/mvb67755tdy7lsomr48h6sufyji5dzja", {
         method:"POST", headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({extclid,gclid,useragent:navigator.userAgent,timestamp:new Date().toISOString()})
+        body: JSON.stringify({extclid,gclid,origem,useragent:navigator.userAgent,timestamp:new Date().toISOString()})
       });
       
       const a = document.createElement("a");
