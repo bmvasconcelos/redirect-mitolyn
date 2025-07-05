@@ -31,8 +31,9 @@
   
         const params = new URLSearchParams(window.location.search);
         const gclid = params.get("extclid") || "";
-        const extclid = gerarExtId();
-  
+        const origem = params.get("aff_sub1") || "";
+        const extclid = gerarExtId();      
+        
         // Envia para seu webhook do Make.com
         fetch("https://hook.us1.make.com/mvb67755tdy7lsomr48h6sufyji5dzja", {
           method: "POST",
@@ -40,6 +41,7 @@
           body: JSON.stringify({
             extclid: extclid,
             gclid: gclid,
+            origem: origem,
             useragent: navigator.userAgent,
             timestamp: new Date().toISOString()
           })
