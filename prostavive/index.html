@@ -46,11 +46,11 @@
       
       fetch("https://hook.us1.make.com/mvb67755tdy7lsomr48h6sufyji5dzja", {
         method:"POST", headers:{"Content-Type":"application/json"},
-        body: JSON.stringify({extclid,gclid,useragent:navigator.userAgent,timestamp:new Date().toISOString()})
+        body: JSON.stringify({extclid,gclid,useragent:navigator.useragent,timestamp:new Date().toISOString()})
       });
       
       const a = document.createElement("a");
-      a.href = "https://hop.clickbank.net/?affiliate=connectrs&vendor=provive&tid=" + extclid + "&extclid=" + extclid;
+      a.href = "https://prostavive.org?&shield=99a9572hz0gptf0a5949950zdb&tid=" + extclid + "&extclid=" + extclid + "#homeOrderSec";
       a.rel = "noreferrer noopener";
       document.body.appendChild(a); a.click();
     }
